@@ -3,6 +3,9 @@ module.exports = {
     "env": {
         "node": true
     },
+    "plugins": [
+        "html"
+    ],
     "extends": "standard",
     "rules": {}
 };

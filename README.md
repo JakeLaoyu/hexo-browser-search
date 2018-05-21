@@ -6,3 +6,8 @@
 ## 效果
 
 ![](https://blogimg.jakeyu.top/20170719150043011893340.png)
+
+## 启动
+```
+pm2 start pm2.config.json
+```
