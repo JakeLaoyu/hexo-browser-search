@@ -7,12 +7,13 @@
 var app = require('../app')
 var debug = require('debug')('demo:server')
 var http = require('http')
+const Config = require('../config')
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3500')
+var port = normalizePort(process.env.PORT || Config.port)
 // app.set('port', port);
 
 /**
@@ -63,6 +64,7 @@ function onError (error) {
     : 'Port ' + port
 
   // handle specific listen errors with friendly messages
+  /* eslint-disable */
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges')
@@ -86,5 +88,5 @@ function onListening () {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port
-  debug('Listening on ' + bind)
+  console.log('Listening on ' + bind)
 }

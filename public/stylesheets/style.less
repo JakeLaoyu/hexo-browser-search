@@ -1,8 +1,47 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import "normalize.less";
+
+html,
+body{
+  color: #555;
+  line-height: 2;
+  overflow: auto;
 }
 
-a {
-  color: #00B7FF;
+.search{
+  background: #F5F7F9;
+  &__inner{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  &__prompt{
+    text-align: center;
+  }
+  &__list{
+    padding: 0;
+  }
+  &__item{
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 20px;
+  }
+  &__title{
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid #999;
+    word-wrap: break-word;
+    text-decoration: none;
+    color: #555;
+  }
+  &__content{
+    padding: 5px 0;
+    color: #222;
+  }
+  &__keyword{
+    border-bottom: 1px dashed #f00;
+    font-weight: bold;
+    color: #f00;
+  }
 }
