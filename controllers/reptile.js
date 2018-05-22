@@ -18,6 +18,7 @@ exports.reptile = async (ctx, next) => {
   })
 
   result.search.entry.forEach(item => {
+    item.content[0]._ = item.content[0]._.replace(/<[^>]+>/g, '')
     if (searchReg.test(item.title[0].toLowerCase()) || searchReg.test(item.content[0]._.toLowerCase())) {
       if (searchReg.test(item.content[0]._.toLowerCase())) {
         let index = item.content[0]._.toLowerCase().indexOf(searchText)
