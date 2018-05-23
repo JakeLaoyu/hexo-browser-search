@@ -1,16 +1,22 @@
 const axios = require('axios')
 const Config = require('../config')
+const cache = require('./cache')
 
 exports.reptile = async (ctx, next) => {
   var datas = await getDatas()
   const searchText = ctx.query.search.trim().toLocaleString()
-  var keywords = searchText.split(/[\s\-]+/)
-  if (keywords.length > 1) {
-    keywords.push(searchText)
-  }
   var resultItems = []
+  const searchCache = await cache.get(searchText)
 
-  if (searchText.length > 0) {
+  if (searchCache) {
+    console.log('读取缓存')
+    resultItems = searchCache
+  } else {
+    console.log('无缓存，遍历搜索')
+    var keywords = searchText.split(/[\s]+/)
+    if (keywords.length > 1) {
+      keywords.push(searchText)
+    }
     // perform local searching
     datas.forEach(function (data) {
       var isMatch = false
@@ -195,9 +201,9 @@ exports.reptile = async (ctx, next) => {
         })
       }
     })
-  };
-
-  // ctx.body = resultItems
+    console.log(`set ${searchText} cache`)
+    cache.set(searchText, resultItems)
+  }
 
   await ctx.render('index', {
     siteIndex: Config.index,
@@ -212,6 +218,12 @@ exports.reptile = async (ctx, next) => {
  */
 async function getDatas () {
   const res = await axios.get(`${Config.index}/${Config.searchFile}`)
+
+  const redisDatas = await cache.get('searchDatas')
+
+  if (redisDatas) {
+    return redisDatas
+  }
 
   const datas = await new Promise((resolve, reject) => {
     require('jsdom/lib/old-api').env('', function (err, window) {
@@ -230,6 +242,10 @@ async function getDatas () {
       resolve(datas)
     })
   })
+
+  console.log('set redis data')
+
+  cache.set('searchDatas', datas)
 
   return datas
 }
