@@ -4,8 +4,6 @@
 
 ![](https://blogimg.jakeyu.top/20170719150043011893340.png)
 
-![](https://blogimg.jakeyu.top/hexo-browser-search/Jietu20180524-004525.gif)
-
 ## demo
 
 首先访问一次[https://i.jakeyu.top/](https://i.jakeyu.top/)
