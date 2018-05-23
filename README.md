@@ -3,6 +3,7 @@
 使用`koa2`、`redis`完成hexo博客chrome浏览器地址栏搜索
 
 ![](https://blogimg.jakeyu.top/20170719150043011893340.png)
+![](https://blogimg.jakeyu.top/hexo-browser-search/Jietu20180524-004525.gif)
 
 ## demo
 
