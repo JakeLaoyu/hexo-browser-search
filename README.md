@@ -6,7 +6,7 @@
 
 ## Hexo配置
 
-安装`hexo-generator-search`插件
+安装[hexo-generator-search](https://github.com/Wzpan/hexo-generator-search)插件
 
 ```
 npm install hexo-generator-search -S
