@@ -1,6 +1,6 @@
 const router = require('koa-router')()
-var reptile = require('../controllers/reptile')
+const search = require('../controllers/search')
 
-router.get('/search', reptile.reptile)
+router.get('/search', search.reptile)
 
 module.exports = router
