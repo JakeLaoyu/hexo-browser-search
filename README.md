@@ -4,6 +4,12 @@
 
 ![](https://blogimg.jakeyu.top/20170719150043011893340.png)
 
+## demo
+
+首先访问一次[https://i.jakeyu.top/](https://i.jakeyu.top/)
+
+然后在chrome地址栏输入`i.jakeyu.top`，点击`Tab`进行搜索
+
 ## Hexo配置
 
 安装[hexo-generator-search](https://github.com/Wzpan/hexo-generator-search)插件
