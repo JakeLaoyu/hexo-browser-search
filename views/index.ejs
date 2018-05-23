@@ -63,11 +63,11 @@
       <ul class="search__list">
         <%items.forEach(function(item){%>
           <li class="search__item">
-            <a class="search__title" href="<%=item.articleUrl%>">
-              <span><%-item.resultTitle%></span>
+            <a class="search__title" href="<%=item.url%>">
+              <span><%-item.searchTitle%></span>
             </a>
             <div class="search__content">
-              <%-item.resultContent%>
+              <%-item.searchContent%>
             </div>
           </li>
           <%})%>
