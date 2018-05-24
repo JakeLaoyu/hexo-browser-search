@@ -64,7 +64,7 @@ module.exports = {
   redis: {
     port: 6379, // redis 端口
     host: '127.0.0.1',  // redis 地址
-    keyPreifx: 'hbs', // redis key前缀，用于防止和其他项目冲突
+    keyPreifx: 'searchDatas', // redis key
     expire: 30 // redis过期时间(s)
   }
 }

@@ -5,6 +5,6 @@ module.exports = {
   redis: {
     port: 6379,
     host: '127.0.0.1',
-    keyPreifx: 'hbs' // redis key前缀，用于防止和其他项目冲突
+    keyPreifx: 'searchDatas' // redis key
   }
 }

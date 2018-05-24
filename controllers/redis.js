@@ -6,12 +6,12 @@ const redis = new Redis({
 })
 
 exports.set = (key, data) => {
-  redis.set(`${Config.redis.keyPreifx}/${key}`, JSON.stringify(data))
+  redis.set(key, JSON.stringify(data))
 }
 
 exports.get = (key) => {
   return new Promise((resolve, reject) => {
-    redis.get(`${Config.redis.keyPreifx}/${key}`, (err, result) => {
+    redis.get(key, (err, result) => {
       if (err) {
         reject(err)
         return
@@ -23,5 +23,5 @@ exports.get = (key) => {
 }
 
 exports.del = (key) => {
-  redis.del(`${Config.redis.keyPreifx}/${key}`)
+  redis.del(key)
 }
