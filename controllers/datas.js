@@ -8,13 +8,19 @@ const Config = require('../config')
  */
 exports.getDatas = async () => {
   const redisDatas = await Redis.get('searchDatas')
+  const isXml = !/json$/i.test(Config.searchFile)
 
   if (redisDatas) {
     return redisDatas
   }
 
-  const res = await axios.get(`${Config.index}/${Config.searchFile}`)
-  const datas = await new Promise((resolve, reject) => {
+  const res = await axios({
+    method: 'get',
+    url: `${Config.index}/${Config.searchFile}`,
+    responseType: isXml ? 'xml' : 'json'
+  })
+
+  const datas = isXml ? await new Promise((resolve, reject) => {
     require('jsdom/lib/old-api').env('', function (err, window) {
       if (err) {
         reject(err)
@@ -30,7 +36,7 @@ exports.getDatas = async () => {
       }).get()
       resolve(datas)
     })
-  })
+  }) : res.data
 
   console.log('set redis data')
 
