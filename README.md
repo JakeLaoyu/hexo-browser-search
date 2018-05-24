@@ -41,7 +41,7 @@ search:
 在博客源码中添加link
 
 ```html
-<link rel="search" type="application/opensearchdescription+xml" href="https://i.jakeyu.top/sitesearch.xml" title="Jake">
+<link rel="search" type="application/opensearchdescription+xml" href="https://xxx.com/sitesearch.xml" title="Jake">
 ```
 
 
