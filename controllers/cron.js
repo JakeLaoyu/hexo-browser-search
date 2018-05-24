@@ -1,9 +1,10 @@
 const CronJob = require('cron').CronJob
 const Datas = require('./datas')
 const Redis = require('./redis')
+const Config = require('../config')
 
 var job = new CronJob({
-  cronTime: '00 59 23 * * *',
+  cronTime: Config.cronTime,
   onTick: async function () {
     console.log('定时任务')
     Redis.del('searchDatas')

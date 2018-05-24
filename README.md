@@ -61,6 +61,7 @@ module.exports = {
   link: 'https://i.jakeyu.top/archives/', // 归档页面地址
   searchFile: 'localsearch.xml',  // hexo-generator-search path配置
   port: 3500, //服务端口
+  cronTime: '00 59 23 * * *', // 设置定时任务时间 参考 https://github.com/kelektiv/node-cron
   redis: {
     port: 6379, // redis 端口
     host: '127.0.0.1',  // redis 地址
