@@ -70,6 +70,14 @@ module.exports = {
 }
 ```
 
+### nginx
+
+```nginx
+location /search {
+  proxy_pass http://127.0.0.1:3500;
+}
+```
+
 ### 启动
 ```
 git clone git@github.com:JakeLaoyu/hexo-browser-search.git
