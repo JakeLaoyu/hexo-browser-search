@@ -6,7 +6,7 @@ const redis = new Redis({
 })
 
 exports.set = (key, data) => {
-  redis.set(`${Config.redis.keyPreifx}/${key}`, JSON.stringify(data), 'EX', Config.redis.expire)
+  redis.set(`${Config.redis.keyPreifx}/${key}`, JSON.stringify(data))
 }
 
 exports.get = (key) => {
@@ -20,4 +20,8 @@ exports.get = (key) => {
       resolve(JSON.parse(result))
     })
   })
+}
+
+exports.del = (key) => {
+  redis.del(`${Config.redis.keyPreifx}/${key}`)
 }

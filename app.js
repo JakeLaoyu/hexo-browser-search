@@ -6,6 +6,7 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const path = require('path')
+const Cron = require('./controllers/cron')
 
 const index = require('./routes/index')
 
@@ -39,5 +40,7 @@ app.use(index.routes(), index.allowedMethods())
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 })
+
+Cron.startCronJob()
 
 module.exports = app

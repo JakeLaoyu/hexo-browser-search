@@ -1,0 +1,40 @@
+const axios = require('axios')
+const Redis = require('./redis')
+const Config = require('../config')
+
+/**
+ * 获取搜索数据
+ * @return {[type]} [description]
+ */
+exports.getDatas = async () => {
+  const redisDatas = await Redis.get('searchDatas')
+
+  if (redisDatas) {
+    return redisDatas
+  }
+
+  const res = await axios.get(`${Config.index}/${Config.searchFile}`)
+  const datas = await new Promise((resolve, reject) => {
+    require('jsdom/lib/old-api').env('', function (err, window) {
+      if (err) {
+        reject(err)
+        return
+      }
+      var $ = require('jquery')(window)
+      var datas = $('entry', res.data).map(function () {
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        }
+      }).get()
+      resolve(datas)
+    })
+  })
+
+  console.log('set redis data')
+
+  Redis.set('searchDatas', datas)
+
+  return datas
+}
