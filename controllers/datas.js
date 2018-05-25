@@ -7,7 +7,7 @@ const Config = require('../config')
  * @return {[type]} [description]
  */
 exports.getDatas = async () => {
-  const redisDatas = await Redis.get('searchDatas')
+  const redisDatas = await Redis.get(Config.redis.key)
   const isXml = !/json$/i.test(Config.searchFile)
 
   if (redisDatas) {
@@ -40,7 +40,7 @@ exports.getDatas = async () => {
 
   console.log('set redis data')
 
-  Redis.set('searchDatas', datas)
+  Redis.set(Config.redis.key, datas)
 
   return datas
 }

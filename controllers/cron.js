@@ -7,7 +7,7 @@ var job = new CronJob({
   cronTime: Config.cronTime,
   onTick: async function () {
     console.log('定时任务')
-    Redis.del('searchDatas')
+    Redis.del(Config.redis.key)
     await Datas.getDatas()
   },
   start: false,
@@ -17,5 +17,5 @@ var job = new CronJob({
 exports.startCronJob = async () => {
   job.start()
   var datas = await Datas.getDatas()
-  Redis.set('searchDatas', datas)
+  Redis.set(Config.redis.key, datas)
 }

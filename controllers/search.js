@@ -6,7 +6,7 @@ exports.reptile = async (ctx, next) => {
   const searchText = ctx.query.search.trim().toLocaleString()
   var resultItems = []
   var datas = []
-  const searchDatas = await Redis.get('searchDatas')
+  const searchDatas = await Redis.get(Config.redis.key)
 
   if (searchDatas) {
     console.log('读取缓存')
