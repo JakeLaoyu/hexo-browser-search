@@ -1,5 +1,5 @@
 const CronJob = require('cron').CronJob
-const Datas = require('./datas')
+const Reptile = require('./reptile')
 const Redis = require('./redis')
 const Config = require('../config')
 
@@ -8,7 +8,7 @@ var job = new CronJob({
   onTick: async function () {
     console.log('定时任务')
     Redis.del(Config.redis.key)
-    await Datas.getDatas()
+    await Reptile.getDatas()
   },
   start: false,
   timeZone: 'Asia/Shanghai'
@@ -16,6 +16,6 @@ var job = new CronJob({
 
 exports.startCronJob = async () => {
   job.start()
-  var datas = await Datas.getDatas()
+  var datas = await Reptile.getDatas()
   Redis.set(Config.redis.key, datas)
 }

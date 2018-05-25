@@ -5,10 +5,20 @@ const redis = new Redis({
   host: Config.redis.host // Redis host
 })
 
+/**
+ * 设置缓存
+ * @param {String} key  redis key
+ * @param {JSON} data 数据
+ */
 exports.set = (key, data) => {
   redis.set(key, JSON.stringify(data))
 }
 
+/**
+ * 读取redis缓存
+ * @param  {String} key redis key
+ * @return {JSON}     数据
+ */
 exports.get = (key) => {
   return new Promise((resolve, reject) => {
     redis.get(key, (err, result) => {
@@ -22,6 +32,11 @@ exports.get = (key) => {
   })
 }
 
+/**
+ * 删除数据
+ * @param  {String} key redis key
+ * @return {[type]}     [description]
+ */
 exports.del = (key) => {
   redis.del(key)
 }

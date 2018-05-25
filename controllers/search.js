@@ -1,7 +1,13 @@
-const Datas = require('./datas')
+const Reptile = require('./reptile')
 const Config = require('../config')
 const Redis = require('./redis')
 
+/**
+ * 搜索
+ * @param  {[type]}   ctx  [description]
+ * @param  {Function} next [description]
+ * @return {Promise}       [description]
+ */
 exports.reptile = async (ctx, next) => {
   const searchText = ctx.query.search.trim().toLocaleString()
   var resultItems = []
@@ -13,7 +19,7 @@ exports.reptile = async (ctx, next) => {
     datas = searchDatas
   } else {
     console.log('无缓存，遍历搜索')
-    datas = await Datas.getDatas()
+    datas = await Reptile.getDatas()
   }
   let keywords = searchText.split(/[\s]+/)
   if (keywords.length > 1) {
@@ -209,4 +215,16 @@ exports.reptile = async (ctx, next) => {
     items: resultItems,
     search: ctx.query.search || '搜索结果'
   })
+}
+
+/**
+ * 刷新缓存
+ * @param  {[type]}   ctx  [description]
+ * @param  {Function} next [description]
+ * @return {Promise}       [description]
+ */
+exports.cache = async (ctx, next) => {
+  Redis.del(Config.redis.key)
+  await Reptile.getDatas()
+  ctx.body = '刷新缓存成功'
 }

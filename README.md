@@ -67,6 +67,10 @@ module.exports = {
     host: '127.0.0.1',  // redis 地址
     keyPreifx: 'searchDatas', // redis key
     expire: 30 // redis过期时间(s)
+  },
+  api: {
+    search: '/search', // 搜索路由
+    cache: '/search/cache' // 刷新缓存路由
   }
 }
 ```

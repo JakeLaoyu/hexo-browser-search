@@ -7,5 +7,9 @@ module.exports = {
     port: 6379,
     host: '127.0.0.1',
     key: 'search' // redis key
+  },
+  api: {
+    search: '/search', // 搜索路由
+    cache: '/search/cache' // 刷新缓存路由
   }
 }
