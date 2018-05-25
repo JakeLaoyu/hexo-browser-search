@@ -53,6 +53,8 @@
   .search__content {
     padding: 5px 0;
     color: #222;
+    display: block;
+    text-decoration: none;
   }
   .search__keyword {
     border-bottom: 1px dashed #f00;
@@ -71,9 +73,9 @@
             <a class="search__title" href="<%=item.articleUrl%>">
               <span><%-item.resultTitle%></span>
             </a>
-            <div class="search__content">
+            <a class="search__content" href="<%=item.articleUrl%>">
               <%-item.resultContent%>
-            </div>
+            </a>
           </li>
           <%})%>
         </div>
