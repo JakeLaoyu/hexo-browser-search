@@ -213,7 +213,8 @@ exports.reptile = async (ctx, next) => {
   await ctx.render('index', {
     siteIndex: Config.index,
     items: resultItems,
-    search: ctx.query.search || '搜索结果'
+    search: ctx.query.search || '搜索结果',
+    searchText: searchText
   })
 }
 
