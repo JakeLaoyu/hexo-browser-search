@@ -92,5 +92,14 @@ npm i pm2 -g
 pm2 start pm2.config.json
 ```
 
+## 开发
+
+```
+git clone https://github.com/JakeLaoyu/hexo-browser-search.git
+cd hexo-browser-search
+yarn
+npm run dev
+```
+
 ## License
 MIT © [JakeLaoyu](https://github.com/JakeLaoyu)

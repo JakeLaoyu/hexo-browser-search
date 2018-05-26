@@ -1,7 +1,6 @@
 {
   "name": "hexo-browser-search",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.2",
   "scripts": {
     "start": "node bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www & gulp sass:watch",
