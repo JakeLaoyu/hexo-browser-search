@@ -1,31 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 html,
-body{
+body {
   color: #555;
   line-height: 2;
   overflow: auto;
 }
-
-.search{
+.search {
   background: #F5F7F9;
-  &__inner{
+  &__inner {
     width: 700px;
     margin: 0 auto;
     background: #fff;
     padding: 40px;
     min-height: 100vh;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
-  &__prompt{
+  &__prompt {
     text-align: center;
+    margin-bottom: 30px;
   }
-  &__list{
+  &__list {
     padding: 0;
   }
-  &__item{
+  &__item {
     border-bottom: 1px dashed #ccc;
     margin-bottom: 20px;
   }
-  &__title{
+  &__title {
     font-weight: bold;
     font-size: 16px;
     border-bottom: 1px solid #999;
@@ -33,11 +38,13 @@ body{
     text-decoration: none;
     color: #555;
   }
-  &__content{
+  &__content {
     padding: 5px 0;
     color: #222;
+    display: block;
+    text-decoration: none;
   }
-  &__keyword{
+  &__keyword {
     border-bottom: 1px dashed #f00;
     font-weight: bold;
     color: #f00;
