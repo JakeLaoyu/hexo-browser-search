@@ -2,8 +2,8 @@
   "name": "hexo-browser-search",
   "version": "0.0.3",
   "scripts": {
-    "start": "node bin/www",
-    "dev": "./node_modules/.bin/nodemon bin/www & gulp sass:watch",
+    "start": "export NODE_ENV=development && node bin/www",
+    "dev": "export NODE_ENV=development && ./node_modules/.bin/nodemon bin/www & gulp sass:watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

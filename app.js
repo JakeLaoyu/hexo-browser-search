@@ -7,6 +7,7 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const path = require('path')
 const Cron = require('./controllers/cron')
+var Config = require('./config')
 
 const index = require('./routes/index')
 
@@ -28,6 +29,9 @@ app.use(views(path.join(__dirname, '/views'), {
 // logger
 app.use(async (ctx, next) => {
   const start = new Date()
+  // 向ejs传递数据
+  ctx.state.NODE_ENV = process.env.NODE_ENV
+  ctx.state.ROUTER = Config.api.search
   await next()
   const ms = new Date() - start
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)

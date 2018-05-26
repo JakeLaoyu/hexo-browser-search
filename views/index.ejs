@@ -8,7 +8,11 @@
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <link rel="icon" type="image/png" href="/favicon.ico?v=5.1.4">
   <title><%= searchText %> | 搜索结果</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <% if (NODE_ENV === 'development'){ %>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  <% }else{ %>
+    <link rel="stylesheet" href="<%=ROUTER%>/stylesheets/style.css">
+  <% } %>
 </head>
 <body>
   <div class="search">
