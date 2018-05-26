@@ -1,6 +1,7 @@
 const Koa = require('koa')
 const app = new Koa()
 const views = require('koa-views')
+const mount = require('koa-mount')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
@@ -20,7 +21,12 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(path.join(__dirname, '/public')))
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(require('koa-static')(path.join(__dirname, '/public')))
+} else {
+  app.use(mount('/search', require('koa-static')(path.join(__dirname, '/public'))))
+}
 
 app.use(views(path.join(__dirname, '/views'), {
   extension: 'ejs'
