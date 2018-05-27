@@ -43,6 +43,7 @@ body {
     color: #222;
     display: block;
     text-decoration: none;
+    word-break: break-all;
   }
   &__keyword {
     border-bottom: 1px dashed #f00;
