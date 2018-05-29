@@ -4,6 +4,8 @@ const Redis = require('./redis')
 
 /**
  * 搜索
+ * NexT v5.1.4
+ * https://github.com/iissnan/hexo-theme-next/blob/v5.1.4/layout/_third-party/search/localsearch.swig
  * @param  {[type]}   ctx  [description]
  * @param  {Function} next [description]
  * @return {Promise}       [description]
