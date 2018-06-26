@@ -8,7 +8,12 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const path = require('path')
 const Cron = require('./controllers/cron')
+const Raven = require('raven')
 var Config = require('./config')
+
+if (Config.sentryUrl) {
+  Raven.config(Config.sentryUrl).install()
+}
 
 const index = require('./routes/index')
 
