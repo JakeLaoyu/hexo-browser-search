@@ -11,7 +11,6 @@ const Redis = require('./redis')
  * @return {Promise}       [description]
  */
 exports.reptile = async (ctx, next) => {
-  ctx.query.search = ctx.query.search || ''
   const searchText = ctx.query.search.trim().toLocaleString()
   var resultItems = []
   var datas = []
