@@ -14,7 +14,7 @@
     "install": "^0.11.0",
     "ioredis": "^3.2.2",
     "jquery": "^3.6.0",
-    "jsdom": "^11.10.0",
+    "jsdom": "^16.5.0",
     "koa": "^2.5.1",
     "koa-bodyparser": "^4.2.0",
     "koa-convert": "^1.2.0",
