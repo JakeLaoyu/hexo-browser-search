@@ -1,3 +1,5 @@
+$backgroundColor: #F5F7F9;
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +11,7 @@ body {
   overflow: auto;
 }
 .search {
-  background: #F5F7F9;
+  background: $backgroundColor;
   &__inner {
     width: 700px;
     margin: 0 auto;
@@ -49,5 +51,17 @@ body {
     border-bottom: 1px dashed #f00;
     font-weight: bold;
     color: #f00;
+  }
+}
+
+footer {
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  background: $backgroundColor;
+
+  a {
+    color: blue;
+    text-decoration: none;
   }
 }

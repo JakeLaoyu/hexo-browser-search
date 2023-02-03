@@ -1,6 +1,6 @@
-var gulp = require('gulp')
-var sass = require('gulp-sass')
-var sourcemaps = require('gulp-sourcemaps')
+const gulp = require('gulp')
+const sass = require('gulp-sass')(require('sass'))
+const sourcemaps = require('gulp-sourcemaps')
 
 gulp.task('sass', function () {
   return gulp.src('./public/stylesheets/style.scss')
@@ -13,5 +13,5 @@ gulp.task('sass', function () {
 })
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./public/stylesheets/**/*.scss', ['sass'])
+  gulp.watch('./public/stylesheets/**/*.scss', gulp.series('sass'))
 })

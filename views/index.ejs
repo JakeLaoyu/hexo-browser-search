@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -17,7 +17,9 @@
 <body>
   <div class="search">
     <div class="search__inner">
-      <div class="search__prompt">搜索到 <%=items.length%> 篇相关日志。</div>
+      <div class="search__prompt">
+        搜索到 <%=items.length%> 篇相关日志。
+      </div>
       <ul class="search__list">
         <%items.forEach(function(item){%>
           <li class="search__item">
@@ -32,5 +34,10 @@
         </div>
     </ul>
   </div>
+
+  <footer>
+    没找到想要的结果？可以尝试
+    <a href="<%= refreshApi %>" target="_blank">刷新缓存</a>
+  </footer>
 </body>
 </html>
