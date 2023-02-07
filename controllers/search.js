@@ -29,7 +29,10 @@ exports.reptile = async (ctx, next) => {
     keywords.push(searchText)
   }
   // perform local searching
-  datas.posts.forEach(function (data) {
+
+  const { posts = [] } = datas || {}
+
+  posts.forEach(function (data) {
     var isMatch = false
     var hitCount = 0
     var searchTextCount = 0
