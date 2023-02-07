@@ -1,6 +1,6 @@
 {
   "name": "hexo-browser-search",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "scripts": {
     "start": "export NODE_ENV=development && node bin/www",
     "dev": "export NODE_ENV=development && ./node_modules/.bin/nodemon bin/www & gulp sass:watch",
