@@ -23,20 +23,21 @@ exports.reptile = async (ctx, next) => {
     console.log('无缓存，遍历搜索')
     datas = await Reptile.getDatas()
   }
+
   let keywords = searchText.split(/[\s]+/)
   if (keywords.length > 1) {
     keywords.push(searchText)
   }
   // perform local searching
-  datas.forEach(function (data) {
+  datas.posts.forEach(function (data) {
     var isMatch = false
     var hitCount = 0
     var searchTextCount = 0
     var title = data.title.trim()
     var titleInLowerCase = title.toLowerCase()
-    var content = data.content.trim().replace(/<[^>]+>/g, '')
+    var content = data.text.trim().replace(/<[^>]+>/g, '')
     var contentInLowerCase = content.toLowerCase()
-    var articleUrl = decodeURIComponent(data.url)
+    var articleUrl = decodeURIComponent(data.permalink)
     var indexOfTitle = []
     var indexOfContent = []
     // only match articles with not empty titles

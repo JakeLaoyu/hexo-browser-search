@@ -12,18 +12,41 @@
 
 ## Hexo配置
 
-安装[hexo-generator-search](https://github.com/Wzpan/hexo-generator-search)插件
+安装[hexo-generator-json-content](https://github.com/alexbruno/hexo-generator-json-content)插件
 
 ```
-npm install hexo-generator-search -S
+npm install hexo-generator-json-content -S
 ```
 
 在`_config.yml`添加下面配置
 
 ```yml
-search:
-  path: localsearch.xml
-  field: post
+jsonContent:
+  meta: false
+  drafts: false
+  file: localsearch.json
+  keywords: undefined
+  dateFormat: YYYY-MM-DD HH:mm:ss
+  tags: false
+  categories: false
+  pages: false
+  posts:
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: false
+    text: true
+    raw: false
+    content: false
+    author: true
+    categories: true
+    tags: true
 ```
 
 在博客`source`目录下创建`sitesearch.xml`
@@ -53,13 +76,13 @@ search:
 
 ![](https://blogimg.jakeyu.top/hexo-browser-search/Jietu20180524-001406@2x.png)
 
-### 配置文件`config.js`说明
+### 配置文件 `config.js` 说明
 
 ```js
 module.exports = {
   index: 'https://i.jakeyu.top', // 网站首页
   link: 'https://i.jakeyu.top/archives/', // 归档页面地址
-  searchFile: 'localsearch.xml',  // hexo-generator-search path配置
+  searchFile: 'localsearch.json',  // hexo-generator-search path配置
   port: 3500, //服务端口
   cronTime: '00 59 23 * * *', // 设置定时任务时间 参考 https://github.com/kelektiv/node-cron
   sentryUrl: '', // https://sentry.io 监控错误，如果不需要删除即可

@@ -30,8 +30,8 @@ exports.getDatas = async () => {
       var datas = $('entry', res.data).map(function () {
         return {
           title: $('title', this).text(),
-          content: $('content', this).text(),
-          url: $('url', this).text()
+          text: $('content', this).text(),
+          permalink: $('url', this).text()
         }
       }).get()
       resolve(datas)
