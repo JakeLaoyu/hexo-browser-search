@@ -2,7 +2,9 @@ const Config = require('../config')
 const Redis = require('ioredis')
 const redis = new Redis({
   port: Config.redis.port, // Redis port
-  host: Config.redis.host // Redis host
+  host: Config.redis.host, // Redis host
+  username: Config.redis.username || 'default', // Redis username
+  password: Config.redis.password || '' // Redis password
 })
 
 /**
